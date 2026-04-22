@@ -14,4 +14,4 @@ Application qui propose des recettes à partir des ingrédients disponibles dans
 ## Liens
 
 - [Maquettes Figma](https://figma.com/...) (à ajouter par Ines)
-- [Tableau Kanban Jira] (à ajouter par Ines)
+- [Tableau Kanban Trello] (à ajouter par Ines)
