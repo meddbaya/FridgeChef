@@ -1,3 +1,4 @@
+// Classe représentant un ingrédient du frigo virtuel
 package com.fridgechef.models;
 
 /**
