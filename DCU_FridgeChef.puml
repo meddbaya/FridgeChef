@@ -1,0 +1,75 @@
+@startuml DCU_FridgeChef
+title Diagramme de Cas d'Utilisation — FridgeChef
+
+skinparam actorStyle awesome
+skinparam backgroundColor #FAFAFA
+skinparam usecase {
+  BackgroundColor #FFF8E1
+  BorderColor #F57F17
+}
+
+actor "Visiteur" as V
+actor "Utilisateur" as U
+actor "Administrateur" as A
+
+U --|> V
+A --|> U
+
+rectangle "Système FridgeChef" {
+
+  ' Visiteur
+  usecase "S'inscrire" as UC1
+  usecase "Se connecter" as UC2
+  usecase "Consulter les recettes populaires" as UC3
+
+  ' Utilisateur - Baya
+  usecase "Ajouter un ingrédient" as UC4
+  usecase "Supprimer un ingrédient" as UC5
+  usecase "Consulter son frigo virtuel" as UC6
+
+  ' Utilisateur - Ines
+  usecase "Rechercher des recettes" as UC7
+  usecase "Filtrer par régime alimentaire" as UC8
+  usecase "Afficher les recettes compatibles" as UC9
+
+  ' Utilisateur - Chahinez
+  usecase "Consulter les détails d'une recette" as UC10
+  usecase "Voir les étapes de préparation" as UC11
+  usecase "Voir les ingrédients manquants" as UC12
+
+  ' Utilisateur - Eya
+  usecase "Ajouter une recette en favori" as UC13
+  usecase "Noter une recette" as UC14
+  usecase "Consulter ses favoris" as UC15
+
+  ' Admin
+  usecase "Gérer les recettes" as UC16
+  usecase "Gérer les utilisateurs" as UC17
+  usecase "Consulter les statistiques" as UC18
+
+  ' Relations include/extend
+  UC7 ..> UC8 : <<extend>>
+  UC7 ..> UC9 : <<include>>
+  UC10 ..> UC11 : <<include>>
+  UC10 ..> UC12 : <<include>>
+  UC13 ..> UC15 : <<include>>
+}
+
+V --> UC1
+V --> UC2
+V --> UC3
+
+U --> UC4
+U --> UC5
+U --> UC6
+U --> UC7
+U --> UC10
+U --> UC13
+U --> UC14
+U --> UC15
+
+A --> UC16
+A --> UC17
+A --> UC18
+
+@enduml
