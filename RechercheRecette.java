@@ -7,7 +7,7 @@ import java.util.List;
 public class RechercheRecette {
 
     private String filtreRegime;
-    private int filtreDureeMax; // en minutes
+    private int filtreDureeMax; 
     private int filtreNbPersonnes;
 
     public RechercheRecette() {
