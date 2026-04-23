@@ -3,10 +3,8 @@ package com.fridgechef.models;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Classe Favori — responsable : Eya
- * Gère les recettes favorites d'un utilisateur
- */
+
+
 public class Favori {
 
     private int id;
@@ -23,9 +21,8 @@ public class Favori {
         this.recettesFavorites = new ArrayList<>();
     }
 
-    /**
-     * Ajoute une recette aux favoris
-     */
+
+    
     public boolean ajouterAuxFavoris(Recette recette) {
         for (Recette r : recettesFavorites) {
             if (r.getId() == recette.getId()) {
@@ -53,9 +50,8 @@ public class Favori {
         return false;
     }
 
-    /**
-     * Affiche tous les favoris de l'utilisateur
-     */
+
+    
     public String afficherFavoris() {
         if (recettesFavorites.isEmpty()) {
             return "💔 Aucune recette en favoris pour le moment.";
@@ -67,7 +63,8 @@ public class Favori {
         return sb.toString();
     }
 
-    // ===== Getters & Setters =====
+  
+    
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
 
