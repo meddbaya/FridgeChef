@@ -3,10 +3,9 @@ package com.fridgechef.models;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Classe Note — responsable : Eya
- * Gère les notes et commentaires sur les recettes
- */
+
+
+
 public class Note {
 
     private int id;
@@ -25,9 +24,9 @@ public class Note {
         this.recette = recette;
     }
 
-    /**
-     * Valide et enregistre une note sur une recette (1-5 étoiles)
-     */
+   
+
+    
     public boolean noterRecette(int valeur, String commentaire) {
         if (valeur < 1 || valeur > 5) {
             System.out.println("❌ La note doit être entre 1 et 5.");
@@ -38,7 +37,7 @@ public class Note {
         System.out.println("⭐ Note ajoutée : " + valeur + "/5 pour \"" + recette.getNom() + "\"");
         System.out.println("   Commentaire : " + commentaire);
 
-        // Mise à jour de la note moyenne de la recette (logique simplifiée Sprint 1)
+        
         recette.setNoteMoyenne(valeur);
         return true;
     }
@@ -47,7 +46,8 @@ public class Note {
         return "⭐ " + valeur + "/5 par " + utilisateur.getNom() + " — \"" + commentaire + "\"";
     }
 
-    // ===== Getters & Setters =====
+
+    
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
 
