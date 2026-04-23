@@ -35,9 +35,9 @@ public class Favori {
         return true;
     }
 
-    /**
-     * Supprime une recette des favoris
-     */
+
+
+    
     public boolean supprimerDesFavoris(int idRecette) {
         for (Recette r : recettesFavorites) {
             if (r.getId() == idRecette) {
