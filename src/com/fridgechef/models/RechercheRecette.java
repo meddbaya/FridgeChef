@@ -79,4 +79,10 @@ public class RechercheRecette {
 
     public int getFiltreNbPersonnes() { return filtreNbPersonnes; }
     public void setFiltreNbPersonnes(int filtreNbPersonnes) { this.filtreNbPersonnes = filtreNbPersonnes; }
+
+     // ajouté en sprint 2
+    
+    public List<Recette> rechercherParIngredients(FrigoVirtuel frigo, List<Recette> catalogue) {
+    // On utilise la méthode stricte déjà implémentée
+    return rechercherParIngredientsStricte(frigo, catalogue);
 }
