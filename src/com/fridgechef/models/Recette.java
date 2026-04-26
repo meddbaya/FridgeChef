@@ -3,19 +3,20 @@ package com.fridgechef.models;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class Recette {
 
-    // ===== Champs privés =====
     private int id;
     private String nom;
     private String description;
-    private int dureePreparation;
+    private int dureePreparation; 
     private int nbPersonnes;
-    private String regime;
+    private String regime; 
     private double noteMoyenne;
     private List<Ingredient> ingredientsNecessaires;
     private List<EtapePreparation> etapes;
 
+    // ===== Constructeurs =====
     public Recette() {
         this.ingredientsNecessaires = new ArrayList<>();
         this.etapes = new ArrayList<>();
@@ -33,9 +34,10 @@ public class Recette {
         this.etapes = new ArrayList<>();
     }
 
+  
     public String afficherDetails() {
         StringBuilder sb = new StringBuilder();
-        sb.append(nom).append("\n");
+        sb.append("📖 ").append(nom).append("\n");
         sb.append("   Description : ").append(description).append("\n");
         sb.append("   Durée : ").append(dureePreparation).append(" min | Personnes : ").append(nbPersonnes).append("\n");
         sb.append("   Régime : ").append(regime).append(" | Note : ").append(noteMoyenne).append("/5\n");
@@ -46,6 +48,7 @@ public class Recette {
         return sb.toString();
     }
 
+   
     public List<Ingredient> calculerIngredientsManquants(FrigoVirtuel frigo) {
         List<Ingredient> manquants = new ArrayList<>();
         List<Ingredient> frigoIngredients = frigo.consulterFrigo();
@@ -73,6 +76,7 @@ public class Recette {
         etapes.add(etape);
     }
 
+    // ===== Getters & Setters =====
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
 
@@ -101,23 +105,4 @@ public class Recette {
     public String toString() {
         return "Recette{id=" + id + ", nom='" + nom + "', note=" + noteMoyenne + "}";
     }
-}
-
-
-// Ajouts pour sprint 2
-
-public int getTempsPreparation() {
-    int totalDuree = this.dureePreparation;
-    for (EtapePreparation etape : this.etapes) {
-        totalDuree += etape.getDuree();
-    }
-    return totalDuree;
-}
-
-public List<EtapePreparation> getEtapes() {
-    return this.etapes;
-}
-
-public List<Ingredient> getIngredientsNecessaires() {
-    return this.ingredientsNecessaires;
 }
