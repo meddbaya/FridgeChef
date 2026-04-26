@@ -15,7 +15,7 @@ public class Recette {
     private double noteMoyenne;
     private List<Ingredient> ingredientsNecessaires;
     private List<EtapePreparation> etapes;
-    private boolean active;  // Ajout pour Sprint 2
+    private boolean active;
 
     // ===== Constructeurs =====
     public Recette() {
@@ -78,24 +78,12 @@ public class Recette {
         etapes.add(etape);
     }
 
-    // ===== Nouvelle méthode Sprint 2 =====
     public int getTempsPreparation() {
         int totalDuree = this.dureePreparation;
         for (EtapePreparation etape : this.etapes) {
             totalDuree += etape.getDuree();
         }
         return totalDuree;
-    }
-
-    public String suggererRemplacementIngredient(Ingredient ingredientManquant) {
-        switch (ingredientManquant.getNom().toLowerCase()) {
-            case "lardons":
-                return "Vous pouvez remplacer les lardons par des champignons ou des allumettes de jambon";
-            case "mozzarella":
-                return "Vous pouvez remplacer la mozzarella par de la feta ou du fromage à pâte dure";
-            default:
-                return "Pas de suggestion pour '" + ingredientManquant.getNom() + "'";
-        }
     }
 
     // ===== Getters & Setters =====
