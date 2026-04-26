@@ -102,3 +102,22 @@ public class Recette {
         return "Recette{id=" + id + ", nom='" + nom + "', note=" + noteMoyenne + "}";
     }
 }
+
+
+// Ajouts pour sprint 2
+
+public int getTempsPreparation() {
+    int totalDuree = this.dureePreparation;
+    for (EtapePreparation etape : this.etapes) {
+        totalDuree += etape.getDuree();
+    }
+    return totalDuree;
+}
+
+public List<EtapePreparation> getEtapes() {
+    return this.etapes;
+}
+
+public List<Ingredient> getIngredientsNecessaires() {
+    return this.ingredientsNecessaires;
+}
