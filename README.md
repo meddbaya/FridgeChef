@@ -14,4 +14,4 @@ Application qui propose des recettes à partir des ingrédients disponibles dans
 ## Liens
 
 - [Maquettes Figma](https://figma.com/...) (à ajouter par Ines)
-- [Tableau Kanban Trello] (à ajouter par Ines)
+- [Tableau Kanban Trello](https://trello.com/b/iuujpCFl/sprint1-planning) (à ajouter par Ines)
