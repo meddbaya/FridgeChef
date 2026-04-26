@@ -15,10 +15,13 @@ public class Recette {
     private double noteMoyenne;
     private List<Ingredient> ingredientsNecessaires;
     private List<EtapePreparation> etapes;
+    private boolean active;  // Ajout pour Sprint 2
 
+    // ===== Constructeurs =====
     public Recette() {
         this.ingredientsNecessaires = new ArrayList<>();
         this.etapes = new ArrayList<>();
+        this.active = true;
     }
 
     public Recette(int id, String nom, String description, int dureePreparation, int nbPersonnes, String regime) {
@@ -31,11 +34,13 @@ public class Recette {
         this.noteMoyenne = 0.0;
         this.ingredientsNecessaires = new ArrayList<>();
         this.etapes = new ArrayList<>();
+        this.active = true;
     }
 
+    // ===== Méthodes métier =====
     public String afficherDetails() {
         StringBuilder sb = new StringBuilder();
-        sb.append(nom).append("\n");
+        sb.append("📖 ").append(nom).append("\n");
         sb.append("   Description : ").append(description).append("\n");
         sb.append("   Durée : ").append(dureePreparation).append(" min | Personnes : ").append(nbPersonnes).append("\n");
         sb.append("   Régime : ").append(regime).append(" | Note : ").append(noteMoyenne).append("/5\n");
@@ -73,6 +78,27 @@ public class Recette {
         etapes.add(etape);
     }
 
+    // ===== Nouvelle méthode Sprint 2 =====
+    public int getTempsPreparation() {
+        int totalDuree = this.dureePreparation;
+        for (EtapePreparation etape : this.etapes) {
+            totalDuree += etape.getDuree();
+        }
+        return totalDuree;
+    }
+
+    public String suggererRemplacementIngredient(Ingredient ingredientManquant) {
+        switch (ingredientManquant.getNom().toLowerCase()) {
+            case "lardons":
+                return "Vous pouvez remplacer les lardons par des champignons ou des allumettes de jambon";
+            case "mozzarella":
+                return "Vous pouvez remplacer la mozzarella par de la feta ou du fromage à pâte dure";
+            default:
+                return "Pas de suggestion pour '" + ingredientManquant.getNom() + "'";
+        }
+    }
+
+    // ===== Getters & Setters =====
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
 
@@ -96,28 +122,12 @@ public class Recette {
 
     public List<Ingredient> getIngredientsNecessaires() { return ingredientsNecessaires; }
     public List<EtapePreparation> getEtapes() { return etapes; }
+    
+    public boolean isActive() { return active; }
+    public void setActive(boolean active) { this.active = active; }
 
     @Override
     public String toString() {
         return "Recette{id=" + id + ", nom='" + nom + "', note=" + noteMoyenne + "}";
     }
-}
-
-
-// Ajouts pour sprint 2
-
-public int getTempsPreparation() {
-    int totalDuree = this.dureePreparation;
-    for (EtapePreparation etape : this.etapes) {
-        totalDuree += etape.getDuree();
-    }
-    return totalDuree;
-}
-
-public List<EtapePreparation> getEtapes() {
-    return this.etapes;
-}
-
-public List<Ingredient> getIngredientsNecessaires() {
-    return this.ingredientsNecessaires;
 }
