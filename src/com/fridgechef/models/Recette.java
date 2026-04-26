@@ -5,7 +5,6 @@ import java.util.List;
 
 public class Recette {
 
-    // ===== Champs privés =====
     private int id;
     private String nom;
     private String description;
@@ -17,7 +16,6 @@ public class Recette {
     private List<EtapePreparation> etapes;
     private boolean active;
 
-    // ===== Constructeurs =====
     public Recette() {
         this.ingredientsNecessaires = new ArrayList<>();
         this.etapes = new ArrayList<>();
@@ -37,7 +35,6 @@ public class Recette {
         this.active = true;
     }
 
-    // ===== Méthodes métier =====
     public String afficherDetails() {
         StringBuilder sb = new StringBuilder();
         sb.append("📖 ").append(nom).append("\n");
@@ -79,14 +76,13 @@ public class Recette {
     }
 
     public int getTempsPreparation() {
-        int totalDuree = this.dureePreparation;
-        for (EtapePreparation etape : this.etapes) {
-            totalDuree += etape.getDuree();
+        int total = dureePreparation;
+        for (EtapePreparation e : etapes) {
+            total += e.getDuree();
         }
-        return totalDuree;
+        return total;
     }
 
-    // ===== Getters & Setters =====
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
 
@@ -110,7 +106,7 @@ public class Recette {
 
     public List<Ingredient> getIngredientsNecessaires() { return ingredientsNecessaires; }
     public List<EtapePreparation> getEtapes() { return etapes; }
-    
+
     public boolean isActive() { return active; }
     public void setActive(boolean active) { this.active = active; }
 
