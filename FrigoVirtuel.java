@@ -1,3 +1,4 @@
+// Sprint 1 - Baya - gestion frigo virtuel
 package com.fridgechef.models;
 
 import java.util.ArrayList;
