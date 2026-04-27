@@ -1,20 +1,27 @@
-// Classe représentant un ingrédient du frigo virtuel
 package com.fridgechef.models;
 
 /**
  * Classe Ingredient — responsable : Baya
- * Représente un ingrédient dans le frigo virtuel de l'utilisateur
+ * Sprint 2 — V2 : ajout validation et détection de doublons par nom
+ *
+ * Prompt IA utilisé :
+ *   "Ajoute à la classe Ingredient Java : (1) une méthode memeNom(String) qui compare
+ *    les noms sans tenir compte de la casse, (2) une méthode valider() qui retourne
+ *    un message d'erreur String si l'ingrédient est invalide (nom vide, quantité <= 0,
+ *    unité vide), ou null si tout est correct. Java plain, sans framework."
+ *
+ * Corrections après génération IA :
+ *   - trim() ajouté sur nom dans memeNom() pour éviter les espaces parasites
+ *   - Message d'erreur reformulé en français cohérent avec le reste du projet
  */
 public class Ingredient {
 
-    // ===== Champs privés =====
     private int id;
     private String nom;
     private String categorie;
     private double quantite;
     private String unite;
 
-    // ===== Constructeurs =====
     public Ingredient() {}
 
     public Ingredient(int id, String nom, String categorie, double quantite, String unite) {
@@ -29,6 +36,28 @@ public class Ingredient {
 
     public String afficherDetails() {
         return nom + " — " + quantite + " " + unite + " [" + categorie + "]";
+    }
+
+    /**
+     * Compare le nom de cet ingrédient avec un autre nom (insensible à la casse).
+     * Utilisé par FrigoVirtuel pour détecter les doublons.
+     */
+    public boolean memeNom(String autreNom) {
+        return this.nom != null && this.nom.trim().equalsIgnoreCase(autreNom.trim());
+    }
+
+    /**
+     * Valide l'ingrédient avant ajout au frigo.
+     * @return message d'erreur si invalide, null si valide
+     */
+    public String valider() {
+        if (nom == null || nom.trim().isEmpty())
+            return "❌ Le nom de l'ingrédient ne peut pas être vide.";
+        if (quantite <= 0)
+            return "❌ La quantité doit être supérieure à 0 (reçu : " + quantite + ").";
+        if (unite == null || unite.trim().isEmpty())
+            return "❌ L'unité ne peut pas être vide.";
+        return null;
     }
 
     // ===== Getters & Setters =====
