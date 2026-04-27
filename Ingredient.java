@@ -1,4 +1,5 @@
 // Sprint 1 - Baya - gestion ingredients
+// Sprint 2 - Baya - logique metier complete
 package com.fridgechef.models;
 
 /**
