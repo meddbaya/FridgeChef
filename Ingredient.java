@@ -1,3 +1,4 @@
+// Sprint 1 - Baya - gestion ingredients
 package com.fridgechef.models;
 
 /**
