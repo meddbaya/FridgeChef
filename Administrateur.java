@@ -1,9 +1,7 @@
 // Sprint 1 - Baya - gestion administrateur
 package com.fridgechef.models;
 
-/**
- * Classe Administrateur — hérite de Utilisateur
- */
+
 public class Administrateur extends Utilisateur {
 
     private String niveau;
