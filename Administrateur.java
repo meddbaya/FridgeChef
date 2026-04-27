@@ -1,3 +1,4 @@
+// Sprint 1 - Baya - gestion administrateur
 package com.fridgechef.models;
 
 /**
